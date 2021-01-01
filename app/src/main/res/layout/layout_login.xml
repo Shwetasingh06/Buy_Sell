@@ -25,7 +25,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
             <EditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/login_email"
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -37,11 +37,12 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/login_pass"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -51,14 +52,17 @@
             android:textSize="@dimen/newsMoreTextSize"
             android:layout_gravity="end"
             android:onClick="viewForgotPAssword"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:id="@+id/login_forgetpass"/>
 
         <Button
-            android:id="@+id/cirLoginButton"
+            android:id="@+id/login_submitbtn"
             style="@style/loginButton"
             android:text="Login"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="@dimen/loginViewsMargin"
+
+            />
 
         <TextView
             style="@style/parent"
@@ -67,7 +71,8 @@
             android:textColor="@color/primaryTextColor"
             android:text="@string/login_signup_hint"
             android:onClick="viewRegisterClicked"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:id="@+id/login_redirect_signup"/>
 
 
     </LinearLayout>

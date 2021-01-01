@@ -1,8 +1,10 @@
-package com.example.buysell;
+package com.example.buysell.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.buysell.R;
 
 public class MainActivity extends AppCompatActivity {
 

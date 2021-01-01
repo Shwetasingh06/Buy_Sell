@@ -25,31 +25,31 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                style="@style/parent">
 
                 <EditText
+                    android:id="@+id/register_fname"
                     style="@style/modifiedEditText"
                     android:layout_width="157dp"
                     android:hint="FirstName"
                     android:inputType="text"
                     android:maxLines="1" />
                 <EditText
+                    android:id="@+id/register_lname"
                     style="@style/modifiedEditText"
                     android:layout_width="157dp"
                     android:hint="LastName"
                     android:inputType="text"
                     android:maxLines="1" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
             <EditText
+                android:id="@+id/register_mob"
                 style="@style/modifiedEditText"
                 android:inputType="text"
                 android:maxLines="1"
@@ -63,7 +63,8 @@
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:hint="@string/login_email_hint"/>
+                android:hint="@string/login_email_hint"
+                android:id="@+id/register_email"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -73,7 +74,8 @@
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:id="@+id/register_password"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -83,16 +85,15 @@
                 style="@style/modifiedEditText"
                 android:hint="@string/login_city_hint"
                 android:maxLines="1"
-                android:inputType="textPassword"/>
+                android:inputType="text"
+                android:id="@+id/register_city"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
         <Button
             style="@style/loginButton"
             android:layout_gravity="center"
-            android:text="Register" />
+            android:text="Register"
+            android:id="@+id/register_regbtn"/>
 
         <TextView
             style="@style/parent"
@@ -100,7 +101,10 @@
             android:textStyle="bold"
             android:textColor="@color/primaryTextColor"
             android:text="@string/signup_login_hint"
-            android:layout_marginTop="@dimen/loginViewsMargin"/>
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:id="@+id/register_redirect_signin"
+
+            />
 
     </LinearLayout>
 
