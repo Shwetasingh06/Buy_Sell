@@ -8,12 +8,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.buysell.R;
+import com.example.buysell.home.Dashboard;
 import com.example.buysell.home.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,7 +35,7 @@ import com.google.firebase.database.core.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //register
     private EditText et_reg_email;
@@ -39,14 +43,15 @@ public class Register extends AppCompatActivity {
     private EditText et_reg_lname;
     private EditText et_reg_phone;
     private EditText et_reg_pass;
-    private EditText et_reg_city;
+    private Spinner spinner;
     private Button btn_reg_sub;
     private TextView tv_reg_signin;
-    private  FirebaseDatabase db;
-    private DatabaseReference dref;
     private FirebaseAuth Auth;
     ProgressDialog progressDialog;
     private List<String> list;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
+    String city;
 
 
 
@@ -64,12 +69,23 @@ public class Register extends AppCompatActivity {
         et_reg_lname=findViewById(R.id.register_lname);
         et_reg_pass=findViewById(R.id.register_password);
         et_reg_phone=findViewById(R.id.register_mob);
-        et_reg_city=findViewById(R.id.register_city);
+        //et_reg_city=findViewById(R.id.register_city);
         btn_reg_sub=findViewById(R.id.register_regbtn);
         tv_reg_signin=findViewById(R.id.register_redirect_signin);
         list = new ArrayList<>();
 
+        sharedPreferences=getSharedPreferences("User Information",MODE_PRIVATE);
 
+        //spinner
+        spinner = (Spinner) findViewById(R.id.register_city);
+        spinner.setOnItemSelectedListener(this);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.city_list, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
 
 
         btn_reg_sub.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +95,12 @@ public class Register extends AppCompatActivity {
                 final String fname=et_reg_fname.getText().toString();
                 final String lname=et_reg_lname.getText().toString();
                 final String password=et_reg_pass.getText().toString();
-                final String city=et_reg_city.getText().toString();
+//                final String city=et_reg_city.getText().toString();
                 final String mobile=et_reg_phone.getText().toString();
+
+
+
+
 
                 if(!(fname.equals("") && lname.equals("") && fname.equals("") && email.equals("") && mobile.equals("") && password.equals("") && city.equals(""))){
                     if(isUnique(email))
@@ -93,21 +113,29 @@ public class Register extends AppCompatActivity {
                             progressDialog.setCancelable(false);
                             progressDialog.show();
 
-                            String[] temp = email.split("@");
+
                             Auth = FirebaseAuth.getInstance();
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user_info").child(temp[0]);
+//                            Auth.getCurrentUser().ge
 
-
-                            UserModel userModel = new UserModel(fname, lname, email, mobile, city, password);
-                            databaseReference.setValue(userModel);
 
                             Auth.createUserWithEmailAndPassword(email,password)
                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             Toast.makeText(Register.this, "Registered Successfully...!", Toast.LENGTH_SHORT).show();
-                                            Intent i = new Intent(Register.this, MainActivity.class);
+                                            editor = sharedPreferences.edit();
+                                            editor.putString("email", email.toLowerCase());
+                                            editor.putString("password", password);
+                                            editor.commit();
+
+                                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user_info").child(task.getResult().getUser().getUid());
+
+
+                                            UserModel userModel = new UserModel(fname, lname, email, mobile, city,password);
+                                            databaseReference.setValue(userModel);
+                                            Intent i = new Intent(Register.this, Dashboard.class);
                                             startActivity(i);
+
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -144,9 +172,9 @@ public class Register extends AppCompatActivity {
 
     private boolean isUnique(String id){
 
-        final String temp[] = id.split("@");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_info");
+        String[] temp = id.split("@");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user_info").child(temp[0]);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -162,6 +190,17 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        return !list.contains(temp[0]);
+        return !list.contains(id);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        city =spinner.getSelectedItem().toString();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

@@ -14,11 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.buysell.R;
+import com.example.buysell.home.Dashboard;
 import com.example.buysell.home.MainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -35,8 +37,13 @@ public class Login extends AppCompatActivity {
     SharedPreferences.Editor editor;
     ProgressDialog progressDialog;
 
-    //firebase
-    private FirebaseAuth Auth;
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +104,7 @@ public class Login extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Login.this, ""+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "hiiiii"+e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
                     }
                 })
@@ -110,7 +117,7 @@ public class Login extends AppCompatActivity {
                         editor.commit();
 
 //                        Toast.makeText(getContext(), "Welcome", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        Intent intent = new Intent(Login.this, Dashboard.class);
                         startActivity(intent);
                         progressDialog.dismiss();
                     }

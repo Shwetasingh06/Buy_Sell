@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.Fill_product_details">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Choose Photo"
+            android:textSize="20dp"
+            android:paddingTop="32dp"
+            android:paddingLeft="32dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/camara"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_camera"
+                    android:padding="32dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:text="camara"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/gallary"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_photo"
+                    android:padding="32dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Gallary"
+                    android:textSize="20dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:padding="32dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Details"
+            android:padding="32dp"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:text="Title"
+            android:paddingLeft="32dp"
+            android:paddingTop="10dp"
+            />
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="32dp"
+            android:textSize="20dp"
+            android:inputType="text"
+            />
+        <TextView
+            android:paddingTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Date of Purchase"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"/>
+        <EditText
+            android:id="@+id/dop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            android:inputType="date"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            android:text="Product Descrption"
+            android:paddingTop="32dp"/>
+        <EditText
+            android:id="@+id/product_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:paddingLeft="32dp"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            android:text="MRP of product"
+            android:paddingTop="32dp"/>
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:paddingLeft="32dp"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            android:text="Selling Price of product"
+            android:paddingTop="32dp"/>
+        <EditText
+            android:id="@+id/selling_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:paddingLeft="32dp"
+
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            android:text="City"
+            android:paddingTop="32dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="32dp"
+            android:id="@+id/spinner"
+            />
+
+        <Button
+            android:id="@+id/button"
+            style="@style/loginButton"
+            android:text="@string/action_sell"
+            android:textColor="@color/whiteTextColor"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_button_bk"
+
+            />
+
+
+
+
+    </LinearLayout>
+</ScrollView>

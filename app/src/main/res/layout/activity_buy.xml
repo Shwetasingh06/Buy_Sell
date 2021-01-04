@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".home.BuyActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:paddingTop="32dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            android:paddingTop="32dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/buy_title"
+            android:paddingLeft="32dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Date of purchase"
+            android:paddingLeft="32dp"
+            android:paddingTop="32dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/buy_dop"
+            android:paddingLeft="32dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Product Description"
+            android:paddingLeft="32dp"
+            android:paddingTop="32dp"/>
+        <TextView
+            android:id="@+id/buy_product_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingLeft="32dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="City"
+            android:paddingLeft="32dp"
+            android:paddingTop="32dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/buy_city"
+            android:paddingLeft="32dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="MRP"
+            android:paddingLeft="32dp"
+            android:paddingTop="32dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/buy_mrp"
+            android:paddingLeft="32dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Price"
+            android:paddingLeft="32dp"
+            android:paddingTop="32dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/buy_price"
+            android:paddingLeft="32dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/buy_warning"
+            android:paddingLeft="32dp"/>
+
+        <Button
+            style="@style/loginButton"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btn_buy"
+            android:background="@drawable/login_button_bk"
+            android:text="Buy"
+            android:textColor="@color/whiteTextColor"
+            android:padding="32dp"
+            android:layout_marginTop="20dp"
+            />
+
+    </LinearLayout>
+
+
+
+</ScrollView>

@@ -5,16 +5,24 @@ public class UserModel {
     private String lname;
     private String email;
     private String phone;
-    private String pass;
     private String city;
+    private  String pass;
 
-    public UserModel(String fname, String lname, String email, String phone, String pass, String city) {
+    public UserModel(String fname, String lname, String email, String phone, String city,String password) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.phone = phone;
-        this.pass = pass;
+        this.pass=password;
         this.city = city;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public UserModel() {
@@ -50,14 +58,6 @@ public class UserModel {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
     }
 
     public String getCity() {

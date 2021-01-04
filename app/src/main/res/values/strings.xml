@@ -6,4 +6,49 @@
     <string name="login_city_hint">City</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <!-- searchable -->
+    <string name="app_label">
+        <item>Mobile</item>
+        <item>watches</item>
+        <item>laptops</item>
+    </string>
+    <string name="search_hint">search</string>
+    <!--profile-->
+    <string name="title_activity_profile">Profile</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_sell">Sell</string>
+
+    <string-array name="city_list">
+        <item>Agartala</item>
+        <item>Agra</item>
+        <item>Ahemdabad</item>
+        <item>Aizwal</item>
+        <item>Ajmer</item>
+        <item>Allahabad</item>
+        <item>alleppey</item>
+        <item>Alibaug</item>
+        <item>Almora</item>
+        <item>Alsisar</item>
+        <item>alwar</item>
+        <item>Amala</item>
+        <item>Mumbai</item>
+        <item>Delhi</item>
+        <item>Chennai</item>
+        <item>Kolkata</item>
+        <item>Surat</item>
+        <item>Pune</item>
+        <item>Lucknow</item>
+        <item>Kanpur</item>
+        <item>Varansi</item>
+        <item>Nagpur</item>
+        <item>Indore</item>
+        <item>Bhopal</item>
+        <item>Thane</item>
+        <item>Patna</item>
+        <item>Ghaziabad</item>
+        <item>Nashik</item>
+        <item>Ludhiyana</item>
+        <item>Bangalore</item>
+    </string-array>
+
 </resources>
