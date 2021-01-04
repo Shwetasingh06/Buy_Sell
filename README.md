@@ -12,9 +12,24 @@ Android
 
 ## Responsibility
 
-front end and back end: Shweta Singh
+front end and back end: Shweta Singh,
 front end: Sheetal kandpal, Shivam Mishra, Shivam Tripathi
 
 ## Steps of solution
+### Login Registation
+![](images/1.jpeg) 
 
+![](images/2.jpeg)
 
+### Available Product  of user's city
+![](images/3.jpeg)
+### Buy button enable for same state 
+![](images/4.jpeg)
+### Show Product in another city
+![](images/5.jpeg)
+
+### Buy Button Disable for another State product
+![](images/6.jpeg)
+
+### Sell your own product
+![](images/8.jpeg)
