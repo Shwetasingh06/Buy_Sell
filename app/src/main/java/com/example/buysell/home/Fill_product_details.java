@@ -2,18 +2,23 @@ package com.example.buysell.home;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -31,6 +36,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Fill_product_details extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
@@ -45,6 +51,7 @@ public class Fill_product_details extends AppCompatActivity  implements AdapterV
     private EditText et_title;
     private Button btn_sell;
     private Spinner spinner;
+    DatePickerDialog pickerDialog;
     String city;
     Uri uri;
     FirebaseAuth auth ;
@@ -71,8 +78,29 @@ public class Fill_product_details extends AppCompatActivity  implements AdapterV
         auth = FirebaseAuth.getInstance();
         pd = new ProgressDialog(this);
 
-        //get data from intent
+        //Date picker
+        et_date_of_purchase.setInputType(InputType.TYPE_NULL);
+        et_date_of_purchase.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View view) {
+                final Calendar calendar=Calendar.getInstance();
+                int day=calendar.get(Calendar.DAY_OF_MONTH);
+                int month=calendar.get(Calendar.MONTH);
+                int year= calendar.get(Calendar.YEAR);
+                //date picker Dialog
+                pickerDialog= new DatePickerDialog(Fill_product_details.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                                et_date_of_purchase.setText(i2+"/"+i1+1+"/"+i);
+                            }
+                        }, year,month,day);
+                pickerDialog.show();
+            }
+        });
 
+        //get data from intent
         final String category=getIntent().getStringExtra("category");
        // Toast.makeText(this, "Category "+category, Toast.LENGTH_SHORT).show();
 

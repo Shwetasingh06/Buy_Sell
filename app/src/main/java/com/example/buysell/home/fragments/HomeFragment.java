@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.buysell.R;
+import com.example.buysell.auth.Login;
 import com.example.buysell.auth.UserModel;
 import com.example.buysell.home.BuyActivity;
 import com.example.buysell.home.ProductModel;
@@ -66,6 +67,9 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
         View view=inflater.inflate(R.layout.fragment_home, container, false);
 
         gv=  view.findViewById(R.id.grid_layout);
+
+
+
 
         //gridview click listner
 
@@ -141,14 +145,22 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
                                 }
 
                             }
+//                            if(getList(productList, userCity)!=null){
+//                                CustomAdapter adp=new CustomAdapter(getList(productList, userCity));
+//                                gv.setAdapter(adp);
+//                            }
+
 
 
                         }
+
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
                         }
+
+
                     });
                 }
             }
@@ -242,8 +254,11 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
       {
           for (ProductModel p: list
           ) {
-              if(p.getCity().equals(city)){
-                  l.add(p);
+              if(city!=null && p.getCity()!=null){
+                  Log.i("shweta", "list_city: "+ city + " " +p.getCity());
+                  if(p.getCity().equals(city)){
+                      l.add(p);
+                  }
               }
           }
       }
